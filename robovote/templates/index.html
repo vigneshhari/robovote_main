@@ -1,0 +1,115 @@
+
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboVote</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" id="bulma" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.3.2/css/bulma.min.css" />
+  <link rel="stylesheet" type="text/css" href="{% static 'css/grid-gallery.css' %}">
+</head>
+
+<script>
+
+    window.onload = function() {
+      var a = {{error}};
+      if(a == 1){
+        alert("Successfully Voted");
+      } 
+      else if(a == 2){
+        alert("Already Voted With This Account");
+      }
+    };
+
+</script>
+
+
+<style>
+    
+
+
+
+
+
+.button:hover {
+  background-position: right center; 
+}
+
+
+
+    </style>
+
+<body>
+  <div class="container section">      
+    <div class="columns " >
+        <div class="column " align=center>
+            <img src="{% static 'images/robologo.png' %}" style=" max-height: 250px; min-height: 100px ; width : auto" alt="Robothon Logo">
+        </div>
+
+        
+    </div>
+    <div class= "columns">
+            <div class = "content column  is-centered" align=center>
+                    <br><br><h1>RoboVote'18</h1>
+                </div>
+
+    
+    </div>
+
+    <div class="columns section">
+
+      <div class="column is-8">
+        <div class="title">Our Teams</div>
+      </div>
+
+    </div>
+    
+    <div class="columns">
+    {% for team in teams %}
+        {% if  team.Val == 1 %}        
+       </div>
+        <div class="columns">
+        {%endif%}
+
+      <div class="column is-4">
+        <div class="card">
+          <header class="card-header">
+            <p class="card-header-title">
+              <img src="https://placehold.it/64x64" class="avatar">
+              &commat;{{team.Name}}
+            </p>
+            <span class="card-header-icon timestamp">
+              2m
+            </span>
+          </header>
+          <div class="card-image">
+            <figure class="image is-4by3">
+              <img src="https://placehold.it/1280x960" alt="Image">
+            </figure>
+          </div>
+          <div class="card-content">
+            <div class="panel-block-item">
+            <a class="button is-medium is-info is-outlined " href = "{{team.url}}">Vote</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+{% endfor %}
+  </div>
+  
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Made With <span style="size : 50px;" class="fa fa-4x fa-heart"></span>  by <strong> Devcom</strong>.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script type="text/javascript"  src="{% static 'js/bulma.js' %}"></script>
+</body>
+</html>

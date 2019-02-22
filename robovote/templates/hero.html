@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+{% load static %}
+{% for team in teams %}
+<html>
+<head>
+  
+<style>
+    
+
+
+
+
+
+.button:hover {
+  background-position: right center; 
+}
+
+
+
+}
+</style>
+
+<style>
+    body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Vote for {{team.Name}}</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/bulma.css' %}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/hero.css' %}">
+</head>
+<body>
+    <div class="hero-body">
+        <div class="container has-text-centered">
+          <div class="columns is-vcentered">
+            <div class="column is-5">
+              <figure class="image is-4by3">
+                <img src="https://picsum.photos/800/600/?random" alt="Description">
+              </figure>
+            </div>
+            <div class="column is-6 is-offset-1">
+              <h1 class="title is-2">
+                {{team.Name}}
+              </h1>
+              <h2 class="subtitle is-5">
+                {{team.Desc}}
+              </h2>
+              <br>
+              <p class="has-text-centered">
+              </p>
+            </div>
+          </div>
+  <!--<section class="hero is-primary is-large header-image">
+
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <h1 class="title is-2">
+          {{team.Name}}
+          
+        </h1>
+        <h2 class="subtitle is-4">
+          {{team.Desc}}
+
+        </h2>
+      </div>
+    </div>
+  </section>-->
+  <div class="hero-cta">
+    <nav class="level">
+      <div class="level-item has-text-centered" style="text-align:center">
+        <p class= "title">Support your Favourite Team By Clicking Vote</p>
+        <br>
+        <br>
+        <br>
+            <a class="button is-large is-info is-outlined " href = "{% url 'social:begin' 'google-oauth2' %}">Vote</a>
+          
+      </div>
+    </nav>
+  </div>
+  <!--<div class = "container">
+    <h1 class="title is-2">
+      Favourited by<br><br>
+    </h1>
+    {% for i in backer%}
+    <h2 class="subtitle is-5">
+    {{i.Name}}</h2>
+    {%endfor%}
+  </div>-->
+  <br>
+  <br>
+  <br>
+  <br>
+  <section class="info-tiles">
+    <div class="tile is-ancestor has-text-centered">
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title">{{count}}</p>
+        </article>
+      </div>
+      <div class="tile is-parent">
+        <article class="tile is-child box">
+          <p class="title" style="position:center">Votes</p>
+          
+        </article>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          Made with <span class = "fa fa-heart"> </span> by <strong>DEVCOM</strong></a>.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script async type="text/javascript" src="../js/bulma.js"></script>
+
+  {% endfor %}
+
+</body>
+</html>
